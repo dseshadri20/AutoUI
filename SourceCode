@@ -1,0 +1,20 @@
+@echo off
+echo[
+echo 	-----------------------------------------------
+echo	         "Multi-Display Prototyping Tool"
+echo 	"Copyright 2018, Divya Seshadri"
+echo 	-----------------------------------------------
+echo[
+
+set /p width=Enter Total Width of Window : 
+set /p height=Enter Total Height of Window : 
+echo Enter the Location of the File :
+echo 	If Framer application, enter http:\\localhost\FolderName\FileName.html
+echo 	If Other applications, enter drive:\folderName\filename.html
+set /p location=
+
+set CHROME_SETTINGS=%CHROME_SETTINGS% --window-position=0,-70
+set CHROME_SETTINGS=%CHROME_SETTINGS% --window-size=%width%,%height%
+set CHROME_SETTINGS=%CHROME_SETTINGS% --app=%location%
+
+start "" "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" %CHROME_SETTINGS%
